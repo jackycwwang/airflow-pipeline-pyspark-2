@@ -11,7 +11,7 @@ def main(date):
     input_path = f"gs://landing-zone-1/orders_input/order_{date}.csv"
 
     # Read CSV files
-    df = spark.read.csv(input_path, header=True, inferschema=True)
+    df = spark.read.csv(input_path, header=True, inferSchema=True)
 
     # Filter the records
     df_filtered = df.filter(df.order_status == "Completed")
@@ -29,4 +29,3 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     main(args.date)
-
